@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/Discover/Discover",
+    "pages/item/item",
+    "pages/search/search",
+    "pages/list/list",
+    "pages/board/board",
+    "pages/Reserve/Reserve",
+    "pages/templates/avatar/avatar"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#f0f0f0",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "Kaca-约拍"
+  },
+  "tabBar": {
+    "color": "#fff",
+    "selectedColor": "#fff",
+    "borderStyle": "white",
+    "backgroundColor": "#fc8c5b",
+    "list": [
+      {
+        "text": "发现",
+        "pagePath": "pages/Discover/Discover",
+        "iconPath": "images/discover.png",
+        "selectedIconPath": "images/discover-actived.png"
+      },
+      {
+        "text": "约拍",
+        "pagePath": "pages/Reserve/Reserve",
+        "iconPath": "images/reserve.png",
+        "selectedIconPath": "images/reserve-actived.png"
+      },
+      {
+        "text": "消息",
+        "pagePath": "pages/profile/profile",
+        "iconPath": "images/message.png",
+        "selectedIconPath": "images/message-actived.png"
+      },
+      {
+        "text": "我",
+        "pagePath": "pages/item/item",
+        "iconPath": "images/me.png",
+        "selectedIconPath": "images/me-actived.png"
+      }
+    ]
+  }
+}

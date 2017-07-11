@@ -1,0 +1,57 @@
+<view class="body">
+<view class="container">
+  <view class="search">
+    <image src="../../images/search.png"></image>
+    <input type="text" placeholder="KACA, 寻你所想"/>
+  </view>
+  <swiper class="banner" indicator-dots="{{swiperSetting.indicatorDots}}" autoplay="{{swiperSetting.autoplay}}" interval="{{swiperSetting.interval}}" duration="{{swiperSetting.duration}}" circular="{{swiperSetting.circular}}">
+      <swiper-item wx:for="{{bannerImgs}}" wx:key="id">
+        <image src="{{item}}" mode="aspectFill"></image>
+      </swiper-item>
+  </swiper>
+  <view class="channel">
+    <view class="channel-selectors">
+      <button class="{{channels.activeChannel==index?'active':''}}" bindtap="changeChannel()" wx:for-items="{{channels.classes}}">{{item.name}}</button>
+      <!-- active 类 if 不正确 -->
+    </view>
+    <view class="channel-content">
+      <view class="row-0">
+        <view class="content-item" wx:for-items="{{channels.content[0]}}">
+          <view class="item-article">
+            <image src="{{item.article.img}}" mode="widthFix"></image>
+            <view>{{item.article.abstract}}</view>
+          </view>
+          <view class="item-author">
+            <image src="{{item.author.avatar}}"></image>
+            <view>{{item.author.name}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="row-1">
+        <view class="content-item" wx:for-items="{{channels.content[0]}}">
+          <view class="item-article">
+            <image src="{{item.article.img}}" mode="widthFix"></image>
+            <view>{{item.article.abstract}}</view>
+          </view>
+          <view class="item-author">
+            <image src="{{item.author.avatar}}"></image>
+            <view>{{item.author.name}}</view>
+          </view>
+        </view> 
+      </view>
+      <view class="row-2">
+        <view class="content-item" wx:for-items="{{channels.content[0]}}">
+          <view class="item-article">
+            <image src="{{item.article.img}}" mode="widthFix"></image>
+            <view>{{item.article.abstract}}</view>
+          </view>
+          <view class="item-author">
+            <image src="{{item.author.avatar}}"></image>
+            <view>{{item.author.name}}</view>
+          </view>
+        </view>     
+      </view>
+    </view>
+  </view>
+</view>
+</view>
