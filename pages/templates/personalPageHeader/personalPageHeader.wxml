@@ -1,0 +1,9 @@
+<!--personalPageHeader.wxml-->
+<template name="personalPageHeader">
+  <view class="personalPageHeader-template">
+    <image class="bg" mode="aspectFill" src="{{background}}"></image>
+    <image class="avatar" src="{{avatarUrl}}"></image>
+    <text class="name">{{nickName}}</text>
+    <text class="sign">{{sign}}</text>
+  </view>
+</template>

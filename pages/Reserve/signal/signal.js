@@ -1,18 +1,41 @@
-// Reserve.js
+// signal.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    type: "",
+    filter:{},
+    results: [
+      {
+        img: "../../../images/avatar-mock/1.jpg",
+        name: "摄影师1",
+        style: [
+          "纪实", "小清新", "街拍"
+        ],
+        position: "天心区",
+        service: "精修10张",
+        price: 120
+      },
+      {
+        img: "../../../images/avatar-mock/1.jpg",
+        name: "摄影师1",
+        style: [
+          "纪实", "小清新", "街拍"
+        ],
+        position: "天心区",
+        service: "精修10张",
+        price: 120
+      }
+    ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    console.log(options);
   },
 
   /**
@@ -62,17 +85,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-
-  gotoRecommend: function () {
-    wx.navigateTo({
-      url: 'recommend/recommend',
-    })
-  },
-  gotoSignal: function (e) {
-    wx.navigateTo({
-      url: 'signal/signal?type=' + e.currentTarget.dataset.type,
-    })    
-  },
-
+  }
 })

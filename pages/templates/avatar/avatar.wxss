@@ -1,1 +1,14 @@
 /* avatar.wxss */
+.avatar {
+  float: left;
+  width: 100%;
+}
+.avatar-img {
+  width: 100%;
+  margin-bottom: 14rpx;
+  border-radius: 100%;
+}
+.avatar-name {
+  font-size: 23rpx;
+  text-align: center;
+}

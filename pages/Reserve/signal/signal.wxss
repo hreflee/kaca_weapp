@@ -1,0 +1,22 @@
+/* signal.wxss */
+
+.container{
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+
+
+
+.result-item-left {
+  float: left;
+
+}
+.avatar {
+  width: 160rpx;
+  margin-bottom: 14rpx;
+  border-radius: 100%;
+}
+.name {
+  font-size: 23rpx;
+  text-align: center;
+}

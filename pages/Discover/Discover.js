@@ -209,8 +209,7 @@ Page({
   
   },
 
-  changeChannel: function () {
-    console.log(1);
-    // this.channels.activeChannel = channel;
+  changeChannel: function (e) {
+    this.setData({"channels.activeChannel":e.currentTarget.dataset.index});
   }
 })

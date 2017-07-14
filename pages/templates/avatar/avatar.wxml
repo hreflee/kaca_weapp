@@ -1,2 +1,7 @@
 <!--avatar.wxml-->
-<text>avatar.wxml</text>
+<template name="avatar">
+  <view bindtap="changeName" class="avatar">
+    <image class="avatar-img" mode="widthFix" src="{{img}}"></image>
+    <view class="avatar-name">{{name}}</view>
+  </view>
+</template>

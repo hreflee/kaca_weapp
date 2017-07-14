@@ -1,0 +1,15 @@
+<!--Message.wxml-->
+<view class="body">
+<view class="container">
+  <view class="chat-list">
+    <view class="chat-item" wx:for="{{chatList}}">
+      <image class="avatar" src="{{item.avatar}}"></image>
+      <view class="detail {{!item.readed?'unread':''}}">
+        <text class="name">{{item.name}}</text>
+        <text class="time">{{item.time}}</text>
+        <text class="last-msg">{{item.lastMsg}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+</view>

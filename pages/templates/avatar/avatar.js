@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    avatar: "../../../images/avatar-mock/1.jpg",
+    name: "摄影师1"
   },
 
   /**
@@ -62,5 +63,11 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  changeName: function () {
+    var avatar = this.data.avatar;
+    avatar.name = "changed";
+    this.setData({"avatar": avatar});
   }
 })

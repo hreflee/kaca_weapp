@@ -1,0 +1,6 @@
+<!--recomend.wxml-->
+<view class="body">
+<view class="container">
+  <view></view>
+</view>
+</view>

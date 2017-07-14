@@ -11,12 +11,12 @@
   </swiper>
   <view class="channel">
     <view class="channel-selectors">
-      <button class="{{channels.activeChannel==index?'active':''}}" bindtap="changeChannel()" wx:for-items="{{channels.classes}}">{{item.name}}</button>
+      <button class="{{channels.activeChannel==index?'active':''}}" bindtap="changeChannel" data-index="{{index}}" wx:for="{{channels.classes}}">{{item.name}}</button>
       <!-- active 类 if 不正确 -->
     </view>
     <view class="channel-content">
       <view class="row-0">
-        <view class="content-item" wx:for-items="{{channels.content[0]}}">
+        <view class="content-item" wx:for="{{channels.content[0]}}">
           <view class="item-article">
             <image src="{{item.article.img}}" mode="widthFix"></image>
             <view>{{item.article.abstract}}</view>
@@ -28,7 +28,7 @@
         </view>
       </view>
       <view class="row-1">
-        <view class="content-item" wx:for-items="{{channels.content[0]}}">
+        <view class="content-item" wx:for="{{channels.content[0]}}">
           <view class="item-article">
             <image src="{{item.article.img}}" mode="widthFix"></image>
             <view>{{item.article.abstract}}</view>
@@ -40,7 +40,7 @@
         </view> 
       </view>
       <view class="row-2">
-        <view class="content-item" wx:for-items="{{channels.content[0]}}">
+        <view class="content-item" wx:for="{{channels.content[0]}}">
           <view class="item-article">
             <image src="{{item.article.img}}" mode="widthFix"></image>
             <view>{{item.article.abstract}}</view>

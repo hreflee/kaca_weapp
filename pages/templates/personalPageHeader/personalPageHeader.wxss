@@ -1,0 +1,54 @@
+/* personalPageHeader.wxss */
+.personalPageHeader-template {
+  width: 100%;
+  height: 376rpx;
+
+  overflow: hidden;
+}
+.personalPageHeader-template .bg{
+  position: absolute;
+  z-index: 10;
+
+  width: 690rpx;
+  height: 376rpx;
+}
+.personalPageHeader-template .avatar{
+  position: relative;
+  z-index: 1000;
+
+  display: block;
+  height: 207rpx;
+  width: 207rpx;
+  margin: auto;
+  margin-top: 28rpx;
+  border: 1px solid white;
+  border-radius: 100%;
+
+  z-index: 1000;
+}
+.personalPageHeader-template .name{
+  position: relative;
+  z-index: 1000;
+
+  display: block;
+  margin: auto;
+  margin-top: 36rpx;
+
+  color: white;
+  text-align: center;
+  font-size: 32rpx;
+  line-height: 32rpx;
+}
+.personalPageHeader-template .sign{
+  position: relative;
+  z-index: 1000;
+
+  display: block;
+  margin: auto;
+  margin-top: 10rpx;
+
+  color: white;
+  text-align: center;
+  font-size: 24rpx;
+  line-height: 24rpx;
+}

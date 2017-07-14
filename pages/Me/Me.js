@@ -1,25 +1,33 @@
-// Reserve.js
+// Me.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    userInfo: {
+			avatarUrl: "../../images/avatar-mock/3.jpg",
+			background: "../../images/Discover-mock/2.jpg",
+			nickName: "I N G",
+			sign: "摄影是一种态度"
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    console.log(getApp().globalData.userInfo);
+    this.setData({
+      "userInfo": getApp().globalData.userInfo
+    })
   },
 
   /**
@@ -64,15 +72,8 @@ Page({
   
   },
 
-  gotoRecommend: function () {
-    wx.navigateTo({
-      url: 'recommend/recommend',
-    })
-  },
-  gotoSignal: function (e) {
-    wx.navigateTo({
-      url: 'signal/signal?type=' + e.currentTarget.dataset.type,
-    })    
-  },
-
+  testFun: function () {
+    console.log(this);
+    this.data.userInfo.nickName = "123456"
+	}
 })

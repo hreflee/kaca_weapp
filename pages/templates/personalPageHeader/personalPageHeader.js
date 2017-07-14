@@ -1,11 +1,14 @@
-// Reserve.js
+// personalPageHeader.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+      avatar: "../../../images/avatar-mock/3.jpg",
+      background: "../../../images/Discover-mock/2.jpg",
+      name: "I N G",
+      sign: "摄影是一种态度"
   },
 
   /**
@@ -62,17 +65,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-
-  gotoRecommend: function () {
-    wx.navigateTo({
-      url: 'recommend/recommend',
-    })
-  },
-  gotoSignal: function (e) {
-    wx.navigateTo({
-      url: 'signal/signal?type=' + e.currentTarget.dataset.type,
-    })    
-  },
-
+  }
 })

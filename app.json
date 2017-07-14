@@ -6,7 +6,12 @@
     "pages/list/list",
     "pages/board/board",
     "pages/Reserve/Reserve",
-    "pages/templates/avatar/avatar"
+    "pages/templates/avatar/avatar",
+    "pages/Reserve/recommend/recommend",
+    "pages/Reserve/signal/signal",
+    "pages/Message/Message",
+    "pages/templates/personalPageHeader/personalPageHeader",
+    "pages/Me/Me"
   ],
   "window": {
     "navigationBarBackgroundColor": "#f0f0f0",
@@ -33,13 +38,13 @@
       },
       {
         "text": "消息",
-        "pagePath": "pages/profile/profile",
+        "pagePath": "pages/Message/Message",
         "iconPath": "images/message.png",
         "selectedIconPath": "images/message-actived.png"
       },
       {
         "text": "我",
-        "pagePath": "pages/item/item",
+        "pagePath": "pages/Me/Me",
         "iconPath": "images/me.png",
         "selectedIconPath": "images/me-actived.png"
       }

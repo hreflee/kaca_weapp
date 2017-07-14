@@ -1,19 +1,19 @@
 <!--Reserve.wxml-->
 <view class="body">
 <view class="container">
-  <view class="recomend">
-    <image mode="aspectFit" src="../../images/Reserve/recomend.jpg"></image>
+  <view bindtap="gotoRecommend" class="recommend">
+    <image mode="aspectFit" src="../../images/Reserve/recommend.jpg"></image>
     <view>推荐组合</view>
   </view>
-  <view class="signal">
+  <view bindtap="gotoSignal" data-type="photoer" class="signal">
     <image mode="aspectFill" src="../../images/Reserve/photographer.png"></image>
     <view>摄影师</view>
   </view>
-  <view class="signal">
+  <view bindtap="gotoSignal" data-type="dresser" class="signal">
     <image mode="aspectFill" src="../../images/Reserve/dresser.png"></image>
     <view>化妆师</view>
   </view>
-  <view class="signal">
+  <view bindtap="gotoSignal" data-type="PSer" class="signal">
     <image mode="aspectFill" src="../../images/Reserve/PSer.png"></image>
     <view>修图师</view>
   </view>

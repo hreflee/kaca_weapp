@@ -1,4 +1,4 @@
-// Reserve.js
+// recomend.js
 Page({
 
   /**
@@ -12,7 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+
   },
 
   /**
@@ -62,17 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-
-  gotoRecommend: function () {
-    wx.navigateTo({
-      url: 'recommend/recommend',
-    })
-  },
-  gotoSignal: function (e) {
-    wx.navigateTo({
-      url: 'signal/signal?type=' + e.currentTarget.dataset.type,
-    })    
-  },
-
+  }
 })

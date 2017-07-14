@@ -1,11 +1,26 @@
-// Reserve.js
+// Message.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    chatList: [
+      {
+        avatar: "../../images/avatar-mock/2.jpg",
+        name: "摄影师A",
+        time: "2017-10-25 15:20",
+        lastMsg: "你上次拍的钱还没付！",
+        readed: false
+      }, 
+      {
+        avatar: "../../images/avatar-mock/2.jpg",
+        name: "摄影师A",
+        time: "2017-10-25 15:20",
+        lastMsg: "你上次拍的钱还没付！",
+        readed: false
+      }
+    ]
   },
 
   /**
@@ -62,17 +77,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-
-  gotoRecommend: function () {
-    wx.navigateTo({
-      url: 'recommend/recommend',
-    })
-  },
-  gotoSignal: function (e) {
-    wx.navigateTo({
-      url: 'signal/signal?type=' + e.currentTarget.dataset.type,
-    })    
-  },
-
+  }
 })
