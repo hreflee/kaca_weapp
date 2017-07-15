@@ -3,7 +3,7 @@
 <view class="container">
   <view class="chat-list">
     <view class="chat-item" wx:for="{{chatList}}">
-      <image class="avatar" src="{{item.avatar}}"></image>
+      <image class="avatar" src="{{item.avatarUrl}}"></image>
       <view class="detail {{!item.readed?'unread':''}}">
         <text class="name">{{item.nickName}}</text>
         <text class="time">{{item.time}}</text>

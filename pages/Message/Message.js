@@ -7,15 +7,15 @@ Page({
   data: {
     chatList: [
       {
-        avatar: "../../images/avatar-mock/2.jpg",
+        avatarUrl: "../../images/avatar-mock/2.jpg",
         nickName: "摄影师A",
         time: "2017-10-25 15:20",
         lastMsg: "你上次拍的钱还没付！",
         readed: false
       }, 
       {
-        avatar: "../../images/avatar-mock/2.jpg",
-        name: "摄影师A",
+        avatarUrl: "../../images/avatar-mock/2.jpg",
+        nickName: "摄影师A",
         time: "2017-10-25 15:20",
         lastMsg: "你上次拍的钱还没付！",
         readed: true

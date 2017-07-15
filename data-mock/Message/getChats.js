@@ -15,7 +15,7 @@ var getChats =
       sessionInfo: {         // 聊天会话信息
         openid: "B",           // 发送者微信id
         nickName: "",          // 发送者微信昵称
-        avatar: "",            // 发送者头像url
+        avatarUrl: "",            // 发送者头像url
         readed: true           // 是否已读 true/false
       },
       messages: [            // 消息数组,包含发送和收到的消息. 按照时间顺序由远及进
