@@ -1,17 +1,13 @@
 {
   "pages": [
     "pages/Discover/Discover",
-    "pages/item/item",
-    "pages/search/search",
-    "pages/list/list",
-    "pages/board/board",
-    "pages/Reserve/Reserve",
     "pages/templates/avatar/avatar",
     "pages/Reserve/recommend/recommend",
     "pages/Reserve/signal/signal",
     "pages/Message/Message",
     "pages/templates/personalPageHeader/personalPageHeader",
-    "pages/Me/Me"
+    "pages/Me/Me",
+    "pages/templates/messageBox/messageBox"
   ],
   "window": {
     "navigationBarBackgroundColor": "#f0f0f0",

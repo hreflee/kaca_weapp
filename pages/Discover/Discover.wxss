@@ -87,6 +87,7 @@
   width: 100%;
 }
 .item-article view{
+  padding: 6rpx;
   font-size: 24rpx;
 }
 .item-author{
@@ -104,9 +105,12 @@
 }
 .item-author view{
   float: left;
-  position: relative;
+  /*position: relative;
   bottom: -6rpx;
-  right: -10rpx;
+  right: -10rpx;*/
+
+  margin-top: 10rpx;
+  margin-left: 10rpx;
 
   font-size: 24rpx;
 }

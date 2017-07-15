@@ -26,8 +26,12 @@
 
  */
 
+var getPersonalInfo = 
+
+// JSON START
 { 
   "openId": "oveDs0Jj2AzsiSC_QRz3ueB1eUoM",
   "sign": "用户签名",
   "bg": "http://kaca-1252910777.cosgz.myqcloud.com/images-mock/bg.jpg"
-} 
+}
+// JSON END

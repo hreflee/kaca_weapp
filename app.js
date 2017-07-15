@@ -12,7 +12,7 @@ App({
     wx.setStorageSync('logs', logs);
     this.getUserInfo(function (res, code) {
       wx.request({
-        url: "https://weapp.hflee.cn/kaca-mock/getPersonalInfo",
+        url: getApp().globalData.serverAddr + "/getPersonalInfo",
         data: {
           "code": code,
           "encryptedData": res.encryptedData,
@@ -20,8 +20,6 @@ App({
         },
         method: "POST",
         success: function (res) {
-          console.log(res);
-          console.log(tools);
           tools.dpCopy(getApp().globalData.userInfo, res.data);
           console.log(getApp().globalData.userInfo, res.data);
         }
@@ -40,8 +38,6 @@ App({
           var code = res.code;
           wx.getUserInfo({
             success: function (res) {
-              console.log(arguments);
-              console.log(res);
               that.globalData.userInfo = res.userInfo;
               typeof cb == "function" && cb(res, code);
             }
@@ -55,6 +51,7 @@ App({
     }
   },
   globalData:{
-    userInfo:null
+    serverAddr: "https://weapp.hflee.cn/kaca-mock",
+    userInfo: null
   }
 })
