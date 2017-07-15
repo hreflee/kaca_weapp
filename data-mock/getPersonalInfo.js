@@ -1,4 +1,4 @@
-/*
+/**
 
   getPersonalInfo 获取用户个人信息 POST
     @param code  客户端登录时获取到的换取sessionKey的code
