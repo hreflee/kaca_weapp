@@ -7,7 +7,7 @@ Page({
   data: {
     userInfo: {
 			avatarUrl: "../../images/avatar-mock/3.jpg",
-			background: "../../images/Discover-mock/2.jpg",
+			background: "http://kaca-1252910777.cosgz.myqcloud.com/images-mock/bg.jpg",
 			nickName: "I N G",
 			sign: "摄影是一种态度"
     }
