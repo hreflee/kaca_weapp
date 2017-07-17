@@ -1,1 +1,90 @@
 /* messageBox.wxss */
+.messageBox {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  margin-left: 30rpx ;
+  margin-right: 30rpx;
+
+  overflow: hidden;
+}
+
+.messageBox .avatar{
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 100%;
+}
+.messageBox .msg{
+  position: relative;
+  z-index: 1000;
+
+  display: block;
+  max-width: 66%;
+  margin: 20rpx;
+  margin-top: 16rpx;
+  margin-bottom: 2px;
+  padding: 18rpx;
+  border-radius: 10rpx;
+
+  box-shadow: 0px 0px 1px 0px;
+}
+.messageBox.receive .avatar,
+.messageBox.receive .msg {
+  float: left;
+  background: #fc8c5b;
+}
+.messageBox.send .avatar,
+.messageBox.send .msg {
+  float: right;
+  background: white;
+}
+
+.messageBox .msg:before {
+  content: "";
+
+  position: absolute;
+  z-index: 0;
+  transform: rotate(45deg);
+
+  display: block;
+  height: 0px;
+  width: 0px;
+
+  box-shadow: 0px 0px 1px 0px;
+}
+.messageBox .msg:after {
+  content: "";
+
+  position: absolute;
+  z-index: 10;
+
+  height: 32rpx;
+  width: 20rpx;
+
+}
+.messageBox.receive .msg:before{
+  left: -10rpx;
+  top: 16rpx;
+  border: 10rpx solid #fc8c5b;
+}
+.messageBox.receive .msg:after {
+  left: -2rpx;
+  top: 10rpx;
+  background: #fc8c5b;
+}
+.messageBox.send .msg:before{
+  right: -10rpx;
+  top: 16rpx;
+  border: 10rpx solid white;
+}
+.messageBox.send .msg:after {
+  right: -2rpx;
+  top: 10rpx;
+  background: white;
+}
+
+.messageBox .msg-text{
+  word-wrap: break-word;
+}
+.messageBox .msg-image image{
+  width: 455rpx;
+}

@@ -7,7 +7,8 @@
     "pages/Message/Message",
     "pages/templates/personalPageHeader/personalPageHeader",
     "pages/Me/Me",
-    "pages/templates/messageBox/messageBox"
+    "pages/templates/messageBox/messageBox",
+    "pages/Message/dialog/dialog"
   ],
   "window": {
     "navigationBarBackgroundColor": "#f0f0f0",

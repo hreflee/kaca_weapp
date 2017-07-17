@@ -2,7 +2,7 @@
 <view class="body">
 <view class="container">
   <view class="chat-list">
-    <view class="chat-item" wx:for="{{chatList}}">
+    <view class="chat-item" wx:for="{{chatList}}" data-openid="{{item.openid}}" bindtap="gotoDialog">
       <image class="avatar" src="{{item.avatarUrl}}"></image>
       <view class="detail {{!item.readed?'unread':''}}">
         <text class="name">{{item.nickName}}</text>

@@ -1,0 +1,4 @@
+<!--dialog.wxml-->
+<import src="../../templates/messageBox/messageBox.wxml" />
+<template is="messageBox" data="{{...msgs}}" />
+<text> {{ dateTest }} </text>    

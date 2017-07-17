@@ -1,28 +1,18 @@
-// Message.js
+// dialog.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    chatList: [
-      {
-        openid: "A",
-        avatarUrl: "../../images/avatar-mock/2.jpg",
-        nickName: "摄影师A",
-        time: "2017-10-25 15:20",
-        lastMsg: "你上次拍的钱还没付！",
-        readed: false
-      }, 
-      {
-        openid: "B",
-        avatarUrl: "../../images/avatar-mock/2.jpg",
-        nickName: "摄影师A",
-        time: "2017-10-25 15:20",
-        lastMsg: "你上次拍的钱还没付！",
-        readed: true
-      }
-    ]
+    msgs: {
+      avatarUrl:"../../../images/avatar-mock/2.jpg",
+      type: "image",
+      content: "https://weapp.hflee.cn/kaca-mock/bg.jpg ",
+      direction: "receive",
+      time: "2017-01-01 22:30:12"
+    },
+    dateTest: ""
   },
 
   /**
@@ -36,7 +26,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    
   },
 
   /**
@@ -79,12 +69,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-
-  gotoDialog: function (e) {
-    console.log(e);
-    wx.navigateTo({
-      url:"dialog/dialog?openid=" + e.currentTarget.dataset.openid
-    });
   }
 })

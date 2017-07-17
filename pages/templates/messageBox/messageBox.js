@@ -5,7 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    avatarUrl:""
+    avatarUrl:"../../../images/avatar-mock/2.jpg",
+    type: "image",
+    content: "https://weapp.hflee.cn/kaca-mock/bg.jpg ",
+    direction: "receive",
+    time: "2017-01-01 22:30:12"
   },
 
   /**
@@ -62,5 +66,11 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
+
+  showImageInfo: function (e) {
+	},
+	adjustImg: function (e) {
+		console.log(e);
+	}
 })
