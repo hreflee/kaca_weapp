@@ -1,36 +1,9 @@
-// 创建一个应用程序对象
-// 如果不显式调用，系统也会自动调用
-// 也就是说：此文件可以留空
 //app.js
 import * as tools from 'tools';
 
 App({
   onLaunch: function () {
-    //调用API从本地缓存中获取数据
-    var logs = wx.getStorageSync('logs') || [];
-    logs.unshift(Date.now());
-    wx.setStorageSync('logs', logs);
-
-    // 获取用户信息和聊天记录
-    this.getUserInfo(function (res, code) {
-      wx.request({
-        url: getApp().globalData.serverAddr + "/getPersonalInfo",
-        data: {
-          "code": code,
-          "encryptedData": res.encryptedData,
-          "vi": res.vi
-        },
-        method: "POST",
-        success: function (res) {
-          tools.dpCopy(getApp().globalData.userInfo, res.data);
-          wx.request({
-            url: getApp().globalData.serverAddr + "/Message/getChat"
-          })
-        }
-      })
-    });
-
-    // 为Date类新增方法
+    // 为js自有类新增方法
     /**       
      * 对Date的扩展，将 Date 转化为指定格式的String       
      * 月(M)、日(d)、12小时(h)、24小时(H)、分(m)、秒(s)、周(E)、季度(q) 可以用 1-2 个占位符       
@@ -74,7 +47,70 @@ App({
           }
         }
         return fmt;
-    }         
+    }
+    /**
+     * 对Array的扩展,在对象数组中查找元素
+     * 不支持keyword 为对象/数组
+     * @param {String} keywordPosition 关键词在对象中的位置,用'.'分隔. 如"sessionInfo.openid"
+     * @param keyword 关键字
+     * @return {Number} 查找到的第一个元素所在位置,如未找到则返回-1
+     */
+    Array.prototype.objectArraySearch = function (keywordPosition, keyword) {
+      var position = keywordPosition.split(".");
+      var index = -1;
+      for(var i = 0; i < this.length; i++){
+        var currentKey = this[i][position[0]];
+        for(var j = 1; j < position.length; j++){
+          currentKey = currentKey[position[j]];
+        }
+        if(currentKey == keyword){
+          index = i;
+          break;
+        }
+      }
+      return index;
+    };
+    /**
+     * 对Array的扩展,在聊天数组中新增拉取到的聊天记录
+     * @param {Array} newChats 新拉取到的聊天记录
+     * @return {Array} 链接后的聊天数据
+     */
+    Array.prototype.concatChats = function (newChats) {
+      var index = -1;
+      for(var i = 0; i < newChats.length; i++){
+        index = this.objectArraySearch("sessionInfo.openid", newChats[i].sessionInfo.openid);
+        if(index == -1){
+          this.push(newChats[i]);
+        }
+        else {
+          this[index].messages = this[index].messages.concat(newChats[i].messages);
+        }
+      }
+    }
+
+
+    //调用API从本地缓存中获取数据
+    var logs = wx.getStorageSync('logs') || [];
+    logs.unshift(Date.now());
+    wx.setStorageSync('logs', logs);
+
+    // 获取用户信息和聊天记录
+    var that = this;
+    that.getUserInfo(function (res, code) {
+      wx.request({
+        url: getApp().globalData.serverAddr + "/getPersonalInfo",
+        data: {
+          "code": code,
+          "encryptedData": res.encryptedData,
+          "vi": res.vi
+        },
+        method: "POST",
+        success: function (res) {
+          tools.dpCopy(getApp().globalData.userInfo, res.data);
+          that.getChats();
+        }
+      })
+    });
   },
   getUserInfo: function(cb){
     var that = this
@@ -99,9 +135,109 @@ App({
       })
     }
   },
+  getChats: function () {
+    wx.getStorage({
+      key: "chatsData",
+      success: function (res) { // 本地保存有数据
+        var lastFetch = res.data.lastFetch;
+        var chats = res.data.chats;
+        getApp().globalData.chatsData["chats"] = chats;
+        getApp().globalData.chatsData["lastFetch"] = new Date();
+
+        wx.request({
+          url: getApp().globalData.serverAddr + "/Message/getChats?timeFrom=" + lastFetch,
+          success: function (res) {
+            var newChats = res.data.chats;
+            var chatsData = getApp().globalData.chatsData;
+            chatsData.chats.concatChats(newChats);
+            wx.setStorage({
+              key: "chatsData",
+              data: {
+                lastFetch: chatsData.lastFetch,
+                chats: chatsData.chats
+              }
+            });
+            console.log(getApp().globalData.chatsData);
+          },
+          fail: function () {
+            wx.showToast({
+              title: '拉取聊天消息失败',
+              duration: 2000
+            })
+          }
+        })
+      },
+      fail: function () {  // 本地未保存有数据
+        wx.request({
+          url: getApp().globalData.serverAddr + "/Message/getChats?timeFrom=",
+          success: function (res) {
+            var chats = res.data.chats;
+            getApp().globalData.chatsData["lastFetch"] = new Date();
+            getApp().globalData.chatsData["chats"] = chats;
+            console.log(getApp().globalData);
+            wx.setStorage({
+              key: "chatsData",
+              data: {
+                lastFetch: getApp().globalData.chatsData["lastFetch"],
+                chats: chats
+              }
+            })
+          },
+          fail: function () {
+            wx.showToast({
+              title: '拉取聊天消息失败',
+              duration: 2000
+            })
+          }
+        })
+      }
+    })
+  },
   globalData:{
     serverAddr: "https://weapp.hflee.cn/kaca-mock",
     userInfo: null, 
-    chats: {}
+    chatsData: {}
   }
 })
+
+/**
+  本地储存数据
+  
+  `chatsData` 聊天数据
+    chatsData: {
+      lastFetch: "2017-01-01 10:00:00", // 上次抓取时间
+      chats: [
+        {
+          "sessionInfo": {         // 聊天会话信息
+            "openid": "B",           // 发送者微信id
+            "nickName": "",          // 发送者微信昵称
+            "avatarUrl": "",            // 发送者头像url
+            "readed": true           // 是否已读 true/false
+          },
+          "messages": [            // 消息数组,包含发送和收到的消息. 按照时间顺序由远及进
+            {
+              "from": "A",           // 该条消息发送方, 这是一条当前用户向"B"发送的消息
+              "to": "B",             // 该条消息接收方
+              "time": "2017-01-01 22:30:12",
+                                   // 该消息发送时间 yyyy-MM-dd HH:mm:ss
+              "type": "text",        // 消息类型,暂定text/image,有可能扩展
+              "content": "hello!"    // 消息内容
+                                   //     text  文字
+                                   //     image  图片url
+            },
+            {
+              "from": "B",           // 该条消息发送方, 这是一条"B"向当前用户发送的消息
+              "to": "A",             // 该条消息接收方
+              "time": "2017-01-01 22:33:12",
+                                   // 该消息发送时间 yyyy-mm-dd HH:mm:ss
+              "type": "image",       // 消息类型,暂定text/image,有可能扩展
+              "content": "http://kaca-1252910777.cosgz.myqcloud.com/chatImages/i2adSfUvrDSieD.jpg"  
+                                   // 消息内容
+                                   //     text  文字
+                                   //     image  图片url
+            }
+          ]
+        }
+      ]
+    }
+ */

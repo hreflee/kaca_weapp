@@ -2,6 +2,7 @@
   "pages": [
     "pages/Discover/Discover",
     "pages/templates/avatar/avatar",
+    "pages/Reserve/Reserve",
     "pages/Reserve/recommend/recommend",
     "pages/Reserve/signal/signal",
     "pages/Message/Message",
