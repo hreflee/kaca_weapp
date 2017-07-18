@@ -15,7 +15,7 @@ App({
      * (new Date()).pattern("yyyy-MM-dd EEE hh:mm:ss") ==> 2009-03-10 星期二 08:09:04       
      * (new Date()).pattern("yyyy-M-d h:m:s.S") ==> 2006-7-2 8:9:4.18       
      */          
-    Date.prototype.Fomat=function(fmt) {           
+    Date.prototype.fomat=function(fmt) {           
         var o = {
           "M+" : this.getMonth()+1, //月份
           "d+" : this.getDate(), //日
@@ -153,7 +153,7 @@ App({
             wx.setStorage({
               key: "chatsData",
               data: {
-                lastFetch: chatsData.lastFetch,
+                lastFetch: chatsData.lastFetch.fomat("yyyy-MM-dd HH:mm:ss"),
                 chats: chatsData.chats
               }
             });
@@ -172,13 +172,14 @@ App({
           url: getApp().globalData.serverAddr + "/Message/getChats?timeFrom=",
           success: function (res) {
             var chats = res.data.chats;
-            getApp().globalData.chatsData["lastFetch"] = new Date();
-            getApp().globalData.chatsData["chats"] = chats;
+            var chatsData = getApp().globalData.chatsData;
+            chatsData.lastFetch = new Date();
+            chatsData.chats = chats;
             console.log(getApp().globalData);
             wx.setStorage({
               key: "chatsData",
               data: {
-                lastFetch: getApp().globalData.chatsData["lastFetch"],
+                lastFetch: chatsData.lastFetch.fomat("yyyy-MM-dd HH:mm:ss"),
                 chats: chats
               }
             })
