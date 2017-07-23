@@ -1,4 +1,5 @@
 // dialog.js
+var tools = require("../../../tools.js");
 Page({
 
   /**
@@ -19,7 +20,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    // wx.onSocketOpen(function (e) {
+    //   console.log("open", e);
+    // });
+    // wx.onSocketClose(function (e) {
+    //   console.log("close", e);
+    // });
+    // wx.connectSocket({
+    //   url: "wss://weapp.hflee.cn/websocket-demo/websocket",
+    //   data: "connect",
+    // });
+    tools.test();
   },
 
   /**

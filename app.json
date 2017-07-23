@@ -4,7 +4,7 @@
     "pages/templates/avatar/avatar",
     "pages/Reserve/Reserve",
     "pages/Reserve/recommend/recommend",
-    "pages/Reserve/signal/signal",
+    "pages/Reserve/single/single",
     "pages/Message/Message",
     "pages/templates/personalPageHeader/personalPageHeader",
     "pages/Me/Me",

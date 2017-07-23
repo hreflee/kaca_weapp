@@ -1,5 +1,6 @@
 //app.js
-import * as tools from 'tools';
+// import * as tools from 'tools';
+var tools = require("tools");
 
 App({
   onLaunch: function () {
